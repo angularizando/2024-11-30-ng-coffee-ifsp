@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="card-content">
+    <span class="title">{{ product().name }} {{ amount() ? '(x' + amount() + ')' : '' }}</span>
+    <span class="description">{{ product().region }}</span>
+    <button (click)="handleClick()">{{ label() }}</button>
+  </div>
+</div>

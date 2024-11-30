@@ -1,0 +1,18 @@
+<h2>Cart List</h2>
+<div class="cart-list">
+  @for (cartItem of cartItems(); track cartItem.product.id) {
+    <app-card 
+      [product]="cartItem.product" 
+      [amount]="cartItem.amount"
+      label="Remove from cart" 
+      (select)="removeFromCart(cartItem.product)" 
+    />
+  } @empty {
+    <p>Não há items no carrinho.</p>
+  }
+</div>
+
+<h2>Address</h2>
+<input [(ngModel)]="address" />
+
+<button [disabled]="totalCartItems() === 0 || !address" (click)="saveOrder()">Save order</button>

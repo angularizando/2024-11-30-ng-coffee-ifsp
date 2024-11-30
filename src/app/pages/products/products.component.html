@@ -1,0 +1,13 @@
+<h2>Product List</h2>
+<div class="product-list">
+  @if (!isLoading()) {
+    @for (product of products(); track product.id) {
+      <app-card [product]="product" (select)="addToCart(product)" />
+    } @empty {
+      <p>Não há produtos.</p>
+    }
+  } @else {
+    <p>Carregando...</p>
+  }
+
+</div>
